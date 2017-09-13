@@ -1,18 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      BLE Scanner
     </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="scan()">
+        Scan
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <div>
-    <button ion-button full color="red" round  >Testar Bluetooth</button>
-  </div>
-
-  <ion-list>
-    <ion-item *ngFor="let out of lists">{{out}}
-     </ion-item>       
-</ion-list>
+   <ion-list>
+    <button ion-item *ngFor="let device of devices">
+      <h2>{{ device.name || 'Unnamed' }}</h2>
+      <p>{{ device.id }}</p>
+      <p>RSSI: {{ device.rssi }}</p>
+    </button>
+   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>

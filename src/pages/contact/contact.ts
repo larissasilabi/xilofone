@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { BLE } from '@ionic-native/ble';
 
 @Component({
   selector: 'page-contact',
@@ -7,8 +8,16 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  public lists = [];
+  public result = [];
 
+  constructor(public navCtrl: NavController, private ble: BLE) {
+
+    
   }
 
+  private testarBluetooth() {
+    
+
+  }
 }

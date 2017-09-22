@@ -59,4 +59,11 @@ export class ContactPage {
       this.statusMessage = message;
     });
   }
+
+  connect(deviceID) {
+    this.ble.connect(deviceID).subscribe(peripheralData => {
+    console.log(peripheralData.characteristics);},
+    peripheralData => {console.log("disconnected");});
+    }
+
 }

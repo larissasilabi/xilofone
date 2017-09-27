@@ -1,7 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-import { BLE } from '@ionic-native/ble';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 
 @Component({
   selector: 'page-contact',
@@ -12,58 +12,25 @@ export class ContactPage {
   devices: any[] = [];
   statusMessage: string;
 
-  constructor(public navCtrl: NavController,
-              private toastCtrl: ToastController,
-              private ble: BLE,
-              private ngZone: NgZone) {
-  }
+public lists = [];
 
-  ionViewDidEnter() {
-    console.log('ionViewDidEnter');
-    this.scan();
-  }
+constructor(private bluetoothserial:BluetoothSerial){
+   this.getAllBluetoothDevices();
+}
 
-  scan() {
-    this.setStatus('Scanning for Bluetooth LE Devices');
-    this.devices = [];  // clear list
+// put BluetoothSerial inside a function, can't be called different
+getAllBluetoothDevices(){
+    // async so keep everything in this method
+    this.bluetoothserial.isEnabled().then((data)=> {
+        // not sure of returning value, probably a boolean
+        console.log("dont know what it returns"+data);
 
-    this.ble.scan([], 5).subscribe(
-      device => this.onDeviceDiscovered(device),
-      error => this.scanError(error)
-    );
-
-    setTimeout(this.setStatus.bind(this), 5000, 'Scan complete');
-  }
-
-  onDeviceDiscovered(device) {
-    console.log('Discovered ' + JSON.stringify(device, null, 2));
-    this.ngZone.run(() => {
-      this.devices.push(device);
+        // returns all the available devices, not just the unpaired ones
+        this.bluetoothserial.list().then((allDevices) => {
+            // set the list to returned value
+            this.lists = allDevices;
+        });
     });
-  }
-
-  // If location permission is denied, you'll end up here
-  scanError(error) {
-    this.setStatus('Error ' + error);
-    let toast = this.toastCtrl.create({
-      message: 'Error scanning for Bluetooth low energy devices',
-      position: 'middle',
-      duration: 5000
-    });
-    toast.present();
-  }
-
-  setStatus(message) {
-    console.log(message);
-    this.ngZone.run(() => {
-      this.statusMessage = message;
-    });
-  }
-
-  connect(deviceID) {
-    this.ble.connect(deviceID).subscribe(peripheralData => {
-    console.log(peripheralData.characteristics);},
-    peripheralData => {console.log("disconnected");});
-    }
+   }
 
 }

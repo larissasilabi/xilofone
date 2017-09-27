@@ -13,8 +13,8 @@
 
 <ion-content>
    <ion-list>
-    <button ion-item *ngFor="let device of devices">
-      <button ion-item (click)="connect(device.id)"></button>
+    <button ion-item *ngFor="let list of lists">
+      <button ion-item (click)="connect(list.id)"></button>
       <h2>{{ device.name || 'Unnamed' }}</h2>
       <p>{{ device.id }}</p>
       <p>RSSI: {{ device.rssi }}</p>

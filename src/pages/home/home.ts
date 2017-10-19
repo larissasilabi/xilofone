@@ -34,31 +34,43 @@ export class HomePage {
 
   playYellow(){
     this.cor = "yellow";
+    this.nativeAudio.preloadSimple('yellow', 'assets/audio/yellow.wav');
+    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
     //this.nativeAudio.preloadSimple('yellow', 'assets/audio/yellow.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playGreen(){
     this.cor = "green";
+    this.nativeAudio.preloadSimple('green', 'assets/audio/green.wav');
+    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
     //this.nativeAudio.preloadSimple('green', 'assets/audio/green.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playLightBlue(){
     this.cor = "ligthblue";
+    this.nativeAudio.preloadSimple('ligthblue', 'assets/audio/ligthblue.wav');
+    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
     //this.nativeAudio.preloadSimple('ligthblue', 'assets/audio/ligthblue.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playDarkBlue(){
     this.cor = "darkblue";
+    this.nativeAudio.preloadSimple('darkblue', 'assets/audio/darkblue.wav');
+    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
    // this.nativeAudio.preloadSimple('darkblue', 'assets/audio/darkblue.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playPurple(){
     this.cor = "purple";
+    this.nativeAudio.preloadSimple('purple', 'assets/audio/purple.wav');
+    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
     //this.nativeAudio.preloadSimple('purple', 'assets/audio/purple.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playPink(){
     this.cor = "pink";
+    this.nativeAudio.preloadSimple('pink', 'assets/audio/pink.wav');
+    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
     //this.nativeAudio.preloadSimple('pink', 'assets/audio/pink.wav').then(this.onSuccessPreloading, this.onError);
   }
 

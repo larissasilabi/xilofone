@@ -33,17 +33,17 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$colors: (  
-  red:     #f53d3d,
-  orange:  #DA4406,
-  yellow:  #D8E90F, 
-  green:      #34DA04,
-  light_blue:    #0E94E8,
-  dark_blue:    #1111E8,
-  purple:       #6B0760,
-  pink:       #F70965,
+$colors: (
+  color_red:     #f53d3d,
+  color_orange:   #f76606,
+  color_yellow:  #D8E90F,
+  color_green:      #34DA04,
+  color_light_blue:    #0E94E8,
+  color_dark_blue:    #1111E8,
+  color_purple:       #6B0760,
+  color_pink:       #F70965,
   primary: #0E94E8,
-  gray: #cdd3d7,
+  color_lightgray: #cdd3d7,
 );
 
 

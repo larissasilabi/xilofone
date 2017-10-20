@@ -11,23 +11,27 @@ export class HomePage {
 
   cor:string;
 
-  buttonRed: string = 'gray';
-  buttonOrange: string = 'gray';
-  buttonYellow: string = 'gray';
-  buttonGreen: string = 'gray';
-  buttonLigthBlue: string = 'gray';
-  buttonDarkBlue: string = 'gray';
-  buttonPurple: string = 'gray';
-  buttonPink: string = 'gray';
+  buttonRed: string = "#cdd3d7";
+  buttonOrange: string = "#cdd3d7";
+  buttonYellow: string = "#cdd3d7";
+  buttonGreen: string = "#cdd3d7";
+  buttonLightBlue: string = "#cdd3d7";
+  buttonDarkBlue: string = "#cdd3d7";
+  buttonPurple: string ="#cdd3d7";
+  buttonPink: string = "#cdd3d7";
 
   constructor(public navCtrl: NavController, private nativeAudio: NativeAudio) {
 
   }
 
+  onInit() {
+    console.log(this.buttonRed);
+  }
+
   playRed(){
     this.cor = "red";
-    console.log(this.cor);
-    this.buttonRed = 'red';
+    this.buttonRed = "#f53d3d";
+    console.log(this.buttonRed);
     this.nativeAudio.preloadSimple('red', 'assets/audio/red.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
   }
@@ -35,57 +39,56 @@ export class HomePage {
   playOrange(){
     this.cor = "orange";
     console.log(this.cor);
+    this.buttonOrange = "#f76606";
     this.nativeAudio.preloadSimple('orange', 'assets/audio/orange.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-    //this.nativeAudio.preloadSimple('orange', 'assets/audio/orange.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playYellow(){
     this.cor = "yellow";
+    this.buttonYellow = "#D8E90F";
     this.nativeAudio.preloadSimple('yellow', 'assets/audio/yellow.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-    //this.nativeAudio.preloadSimple('yellow', 'assets/audio/yellow.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playGreen(){
     this.cor = "green";
+    this.buttonGreen = "#34DA04";
     this.nativeAudio.preloadSimple('green', 'assets/audio/green.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-    //this.nativeAudio.preloadSimple('green', 'assets/audio/green.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playLightBlue(){
     this.cor = "ligthblue";
+    this.buttonLightBlue = "#0E94E8";
     this.nativeAudio.preloadSimple('ligthblue', 'assets/audio/ligthblue.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-    //this.nativeAudio.preloadSimple('ligthblue', 'assets/audio/ligthblue.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playDarkBlue(){
     this.cor = "darkblue";
+    this.buttonDarkBlue = "#1111E8";
     this.nativeAudio.preloadSimple('darkblue', 'assets/audio/darkblue.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-   // this.nativeAudio.preloadSimple('darkblue', 'assets/audio/darkblue.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playPurple(){
     this.cor = "purple";
+    this.buttonPurple = "#6B0760";
     this.nativeAudio.preloadSimple('purple', 'assets/audio/purple.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-    //this.nativeAudio.preloadSimple('purple', 'assets/audio/purple.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   playPink(){
     this.cor = "pink";
+    this.buttonPink = "#F70965";
     this.nativeAudio.preloadSimple('pink', 'assets/audio/pink.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-    //this.nativeAudio.preloadSimple('pink', 'assets/audio/pink.wav').then(this.onSuccessPreloading, this.onError);
   }
 
   onSuccessPreloading = (data) => {
     console.log('success preloading', data);
     console.log('success preloading:' + this.cor);
-    //this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
   }
 
   onError = (data) => {
@@ -93,16 +96,14 @@ export class HomePage {
   }
 
   onSuccessPlaying = (data) => {
-    console.log('onSuccessPlaying:' + this.cor);
-    
-    this.buttonOrange = 'gray';
-    this.buttonYellow = 'gray';
-    this.buttonGreen = 'gray';
-    this.buttonLigthBlue = 'gray';
-    this.buttonDarkBlue= 'gray';
-    this.buttonPurple = 'gray';
-    this.buttonPink = 'gray';
-    //this.nativeAudio.unload(this.cor);
+    this.buttonRed = "#cdd3d7";
+    this.buttonOrange = "#cdd3d7";
+    this.buttonYellow = "#cdd3d7";
+    this.buttonGreen = "#cdd3d7";
+    this.buttonLightBlue = "#cdd3d7";
+    this.buttonDarkBlue= "#cdd3d7";
+    this.buttonPurple = "#cdd3d7";
+    this.buttonPink = "#cdd3d7";
     console.log('onSuccessPlaying', data);
   }
 }

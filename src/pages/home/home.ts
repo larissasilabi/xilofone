@@ -10,18 +10,26 @@ import { NativeAudio } from '@ionic-native/native-audio';
 export class HomePage {
 
   cor:string;
+
+  buttonRed: string = 'gray';
+  buttonOrange: string = 'gray';
+  buttonYellow: string = 'gray';
+  buttonGreen: string = 'gray';
+  buttonLigthBlue: string = 'gray';
+  buttonDarkBlue: string = 'gray';
+  buttonPurple: string = 'gray';
+  buttonPink: string = 'gray';
+
   constructor(public navCtrl: NavController, private nativeAudio: NativeAudio) {
 
   }
 
-
   playRed(){
     this.cor = "red";
     console.log(this.cor);
+    this.buttonRed = 'red';
     this.nativeAudio.preloadSimple('red', 'assets/audio/red.wav');
     this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-    //this.nativeAudio.preloadSimple('red', 'assets/audio/red.wav').then(this.onSuccessPreloading, this.onError);
-
   }
 
   playOrange(){
@@ -86,6 +94,14 @@ export class HomePage {
 
   onSuccessPlaying = (data) => {
     console.log('onSuccessPlaying:' + this.cor);
+    
+    this.buttonOrange = 'gray';
+    this.buttonYellow = 'gray';
+    this.buttonGreen = 'gray';
+    this.buttonLigthBlue = 'gray';
+    this.buttonDarkBlue= 'gray';
+    this.buttonPurple = 'gray';
+    this.buttonPink = 'gray';
     //this.nativeAudio.unload(this.cor);
     console.log('onSuccessPlaying', data);
   }

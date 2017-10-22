@@ -34,16 +34,17 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  color_red:     #f53d3d,
-  color_orange:   #f76606,
-  color_yellow:  #D8E90F,
-  color_green:      #34DA04,
-  color_light_blue:    #0E94E8,
-  color_dark_blue:    #1111E8,
-  color_purple:       #6B0760,
-  color_pink:       #F70965,
-  primary: #0E94E8,
-  color_lightgray: #cdd3d7,
+  primary: #19c9c0, 
+  secondary:   #32db64,
+  danger:      #f53d3d,
+  dark:        #222,
+  favorite:    #69BB7B,
+  background:  #314655,
+  error:       #E0343D,
+  button:      #387ef5,
+  title:       #262626,
+  description: #4A4A4A,
+  light:       #f4f4f4,
 );
 
 

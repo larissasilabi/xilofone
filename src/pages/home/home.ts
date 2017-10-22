@@ -1,94 +1,102 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NativeAudio } from '@ionic-native/native-audio';
-
+import { trigger, state, style, transition, animate } from '@angular/animations'
+import { AudioProvider } from 'ionic-audio';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  animations: [
+    trigger('fade', [
+      state('active', style({
+        opacity: 1
+      })),
+      state('inactive', style({
+        opacity: 0.4
+      })),
+      transition('active => inactive', animate('.0.3s')),
+      transition('inactive => active', animate('.0.3s')),      
+    ])
+  ]
 })
 export class HomePage {
 
-  cor:string;
-
-  buttonRed: string = "#cdd3d7";
-  buttonOrange: string = "#cdd3d7";
-  buttonYellow: string = "#cdd3d7";
-  buttonGreen: string = "#cdd3d7";
-  buttonLightBlue: string = "#cdd3d7";
-  buttonDarkBlue: string = "#cdd3d7";
-  buttonPurple: string ="#cdd3d7";
-  buttonPink: string = "#cdd3d7";
+  controlRed = 'inactive';
+  controlOrange = 'inactive';
+  controlYellow = 'inactive';
+  controlGreen = 'inactive';
+  controlLightBlue = 'inactive';
+  controlDarkBlue = 'inactive';
+  controlPurple = 'inactive';
+  controlPink = 'inactive';
 
   constructor(public navCtrl: NavController, private nativeAudio: NativeAudio) {
-
+  
   }
 
   onInit() {
-    console.log(this.buttonRed);
   }
 
-  playRed(){
-    this.cor = "red";
-    this.buttonRed = "#f53d3d";
-    console.log(this.buttonRed);
+  // C (Dó)
+  playC() {
+    this.controlRed = (this.controlRed == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('red', 'assets/audio/red.wav');
-    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
+    this.nativeAudio.play('red').then(this.onSuccessPlaying, this.onError);
+    this.wait(3000);    
+    this.controlRed = (this.controlRed == 'active') ? 'inactive' : 'active';
   }
 
-  playOrange(){
-    this.cor = "orange";
-    console.log(this.cor);
-    this.buttonOrange = "#f76606";
+  // D (Ré)
+  playD() {
+    this.controlOrange = (this.controlOrange == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('orange', 'assets/audio/orange.wav');
-    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
+    this.nativeAudio.play('orange').then(this.onSuccessPlaying, this.onError);    
+    this.wait(3000);    
+    this.controlOrange = (this.controlOrange == 'active') ? 'inactive' : 'active';
   }
 
-  playYellow(){
-    this.cor = "yellow";
-    this.buttonYellow = "#D8E90F";
+  // E (Mi)
+  playE() {
+    this.controlYellow = (this.controlYellow == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('yellow', 'assets/audio/yellow.wav');
-    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
+    this.nativeAudio.play('yellow').then(this.onSuccessPlaying, this.onError);
+    
   }
 
-  playGreen(){
-    this.cor = "green";
-    this.buttonGreen = "#34DA04";
+  // F (Fá)
+  playF() {
+    this.controlGreen = (this.controlGreen == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('green', 'assets/audio/green.wav');
-    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
+    this.nativeAudio.play('green').then(this.onSuccessPlaying, this.onError);
   }
 
-  playLightBlue(){
-    this.cor = "ligthblue";
-    this.buttonLightBlue = "#0E94E8";
+  // G (Sol)
+  playG() {
+    this.controlLightBlue = (this.controlLightBlue == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('ligthblue', 'assets/audio/ligthblue.wav');
-    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
+    this.nativeAudio.play('lightblue').then(this.onSuccessPlaying, this.onError);
   }
 
-  playDarkBlue(){
-    this.cor = "darkblue";
-    this.buttonDarkBlue = "#1111E8";
+  // A (Lá)
+  playA() {
+    this.controlDarkBlue = (this.controlDarkBlue == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('darkblue', 'assets/audio/darkblue.wav');
-    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
+    this.nativeAudio.play('darkblue').then(this.onSuccessPlaying, this.onError);
   }
 
-  playPurple(){
-    this.cor = "purple";
-    this.buttonPurple = "#6B0760";
+  // B (Si)
+  playB() {
+    this.controlPurple = (this.controlPurple == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('purple', 'assets/audio/purple.wav');
-    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
+    this.nativeAudio.play('purple').then(this.onSuccessPlaying, this.onError);
   }
 
-  playPink(){
-    this.cor = "pink";
-    this.buttonPink = "#F70965";
+  // C (Dó)
+  playC2() {
+    this.controlPink = (this.controlPink == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('pink', 'assets/audio/pink.wav');
-    this.nativeAudio.play(this.cor).then(this.onSuccessPlaying, this.onError);
-  }
-
-  onSuccessPreloading = (data) => {
-    console.log('success preloading', data);
-    console.log('success preloading:' + this.cor);
+    this.nativeAudio.play('pink').then(this.onSuccessPlaying, this.onError);
   }
 
   onError = (data) => {
@@ -96,14 +104,122 @@ export class HomePage {
   }
 
   onSuccessPlaying = (data) => {
-    this.buttonRed = "#cdd3d7";
-    this.buttonOrange = "#cdd3d7";
-    this.buttonYellow = "#cdd3d7";
-    this.buttonGreen = "#cdd3d7";
-    this.buttonLightBlue = "#cdd3d7";
-    this.buttonDarkBlue= "#cdd3d7";
-    this.buttonPurple = "#cdd3d7";
-    this.buttonPink = "#cdd3d7";
     console.log('onSuccessPlaying', data);
+  }
+
+  disable() {
+    this.controlRed = 'inactive';
+    this.controlOrange = 'inactive';
+    this.controlYellow = 'inactive';
+    this.controlGreen = 'inactive';
+    this.controlLightBlue = 'inactive';
+    this.controlDarkBlue = 'inactive';
+    this.controlPurple = 'inactive';
+    this.controlPink = 'inactive';
+  }
+
+  play1() {
+    // DÓ (1), RÉ (1), MI (1), DÓ (1)
+    this.playC();
+    this.wait(1000);
+    console.log("finish C");
+    this.playD();
+    this.wait(1000);
+    console.log("finish D");
+    this.playE();
+
+    this.wait(1000);
+    this.playC();
+    this.wait(1000);
+
+    // DÓ (1), RÉ (1), MI (1), DÓ (1)
+    this.playC();
+    this.wait(1000);
+    this.playD();
+    this.wait(1000);
+    this.playE();
+    this.wait(1000);
+    this.playC();
+
+    // MI (1), FÁ (1), SOL (2)
+    this.playE();
+    this.wait(1000);
+    this.playF();
+    this.wait(1000);
+    this.playG();
+    this.wait(2000);
+
+    // MI (1), FÁ (1), SOL (2)
+    this.playE();
+    this.wait(1000);
+    this.playF();
+    this.wait(1000);
+    this.playG();
+    this.wait(2000);
+
+    // SOL (1/2), LÁ (1/2), SOL (1/2), FÁ (1/2), MI (1), DÓ (1)
+    this.playG();
+    this.wait(500);
+    this.playA();
+    this.wait(500);
+    this.playG();
+    this.wait(500);
+    this.playF();
+    this.wait(500);
+    this.playE();
+    this.wait(1000);
+    this.playC();
+    this.wait(1000);
+
+    // SOL (1/2), LÁ (1/2), SOL (1/2), FÁ (1/2), MI (1), DÓ (1)
+    this.playG();
+    this.wait(500);
+    this.playA();
+    this.wait(500);
+    this.playG();
+    this.wait(500);
+    this.playF();
+    this.wait(500);
+    this.playE();
+    this.wait(1000);
+    this.playC();
+    this.wait(1000);
+
+    // DÓ (1), DÓ (1), DÓ (1)
+    this.playC();
+    this.wait(1000);
+    this.playC();
+    this.wait(1000);
+    this.playC();
+    this.wait(1000);
+
+    // DÓ (1), DÓ (1), DÓ (1)
+    this.playC();
+    this.wait(1000);
+    this.playC();
+    this.wait(1000);
+    this.playC();
+    this.wait(1000);
+
+  }
+
+  play2() {
+    this.playC();
+    this.wait(500);
+    this.playC2();
+    this.wait(500);
+    this.playC2();
+  }
+
+  play3() {
+
+  }
+
+  wait(ms) {
+    var start = new Date().getTime();
+    var end = start;
+    while (end < start + ms) {
+      end = new Date().getTime();
+    }
   }
 }

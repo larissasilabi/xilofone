@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { NativeAudio } from '@ionic-native/native-audio';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
@@ -21,7 +22,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    BrowserAnimationsModule,
+    IonicModule.forRoot(MyApp), 
   ],
   bootstrap: [IonicApp],
   entryComponents: [

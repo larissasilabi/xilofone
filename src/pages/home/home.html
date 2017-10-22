@@ -1,38 +1,38 @@
 <ion-content padding>
   <div>
-    <button ion-button large full round (click)="playRed()" [ngStyle]="{'background-color': buttonRed}"></button>
+    <button ion-button [@fade]="controlRed" large full round (click)="playC()" [ngStyle]="{'background-color': '#f53d3d'}"></button>
   </div>
   <div>
-    <button ion-button full large round (click)="playOrange()" [ngStyle]="{'background-color': buttonOrange}"></button>
+    <button ion-button [@fade]="controlOrange" full large round (click)="playD()" [ngStyle]="{'background-color': '#f76606'}"></button>
   </div>
   <div>
-    <button ion-button full large round (click)="playYellow()" [ngStyle]="{'background-color': buttonYellow}"></button>
+    <button ion-button [@fade]="controlYellow" full large round (click)="playE()" [ngStyle]="{'background-color': '#D8E90F'}"></button>
   </div>
   <div>
-    <button ion-button full large round (click)="playGreen()" [ngStyle]="{'background-color': buttonGreen}"></button>
+    <button ion-button [@fade]="controlGreen" full large round (click)="playF()" [ngStyle]="{'background-color': '#34DA04'}"></button>
   </div>
   <div>
-    <button ion-button full large round (click)="playLightBlue()" [ngStyle]="{'background-color': buttonLightBlue}"></button>
+    <button ion-button [@fade]="controlLightBlue" full large round (click)="playG()" [ngStyle]="{'background-color': '#0E94E8'}"></button>
   </div>
   <div>
-    <button ion-button full large round (click)="playDarkBlue()" [ngStyle]="{'background-color': buttonDarkBlue}"></button>
+    <button ion-button [@fade]="controlDarkBlue" full large round (click)="playA()" [ngStyle]="{'background-color': '#0f0fa1'}"></button>
   </div>
   <div>
-    <button ion-button full large round (click)="playPurple()" [ngStyle]="{'background-color': buttonPurple}"></button>
+    <button ion-button [@fade]="controlPurple" full large round (click)="playB()" [ngStyle]="{'background-color': '#710b7a'}"></button>
   </div>
   <div>
-    <button ion-button full large round (click)="playPink()" [ngStyle]="{'background-color': buttonPink}"></button>
+    <button ion-button [@fade]="controlPink" full large round (click)="playC2()" [ngStyle]="{'background-color': '#F70965'}"></button>
   </div>
   <ion-grid>
     <ion-row>
       <ion-col col-4>
-        <img src="assets/imgs/one.png" >
+        <button ion-button full large (click)="play1()" [ngStyle]="{'background-color': primary}">1</button>
       </ion-col>
       <ion-col col-4>
-          <img src="assets/imgs/two.png" >
+        <button ion-button full large (click)="play2()" [ngStyle]="{'background-color': primary}">2</button>
       </ion-col>
       <ion-col col-4>
-          <img src="assets/imgs/three.png" >
+        <button ion-button full large (click)="play3()" [ngStyle]="{'background-color': primary}">3</button>
       </ion-col>
     </ion-row>
   </ion-grid>

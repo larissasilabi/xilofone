@@ -1,29 +1,42 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      BLE Scanner
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="scan()">
-        Scan
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
+<ion-content padding>
+    <ion-list padding>
+      <button ion-button block (click)="startScanning()">scan</button>
+      <ion-list-header>
+        Paired Devices
+      </ion-list-header>
+      <ion-item *ngFor="let device of pairedDevices">
+        {{device.name}}
+      </ion-item>
+      <button ion-button block (click)="disconnect()">Disconnect</button>
+      <ion-list-header>
+        availlable Devices
+      </ion-list-header>
+      <ion-item *ngFor='let device of unpairedDevices'>
+        <span (click)="selectDevice(device.address)">
+        {{device.name}}
+      </span>
+      </ion-item>
+      <ion-spinner name="crescent" *ngIf="gettingDevices"></ion-spinner>
+    </ion-list>
 
-<ion-content>
-   <ion-list>
-    <button ion-item *ngFor="let list of lists">
-      <button ion-item (click)="connect(list.id)"></button>
-      <h2>{{ device.name || 'Unnamed' }}</h2>
-      <p>{{ device.id }}</p>
-      <p>RSSI: {{ device.rssi }}</p>
-    </button>
-   </ion-list>
-</ion-content>
+    <div>
+      <ion-row>
+        <ion-col col-9>
+          <ion-label color="primary">Enviar</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="texto"></ion-input>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button (click)="send()">Send</button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div>
+      <ion-row>
+        <ion-col col-12>
+          <ion-label color="primary">Recebido</ion-label>
+          <ion-input type="text" value="" [(ngModel)]="recebido"></ion-input>
+        </ion-col>
+      </ion-row>
+    </div>
 
-<ion-footer>
-  <ion-toolbar>
-    <p>{{ statusMessage }}</p>
-  </ion-toolbar>
-</ion-footer>
+  </ion-content>

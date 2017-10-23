@@ -1,7 +1,15 @@
-<ion-content padding>
-  <div>
-    <button ion-button [@fade]="controlRed" large full round (click)="playC()" [ngStyle]="{'background-color': '#f53d3d'}"></button>
+<ion-content class="padding">
+  <div class="flip-button" onclick="this.classList.toggle('hover');">
+    <div class="button icon icon-right ion-chevron-right front">Click me</div>
+    <div class="button button-balanced back">Clicked!</div>
   </div>
+  <br>
+  <br>
+  <br>
+
+  <!-- <div>
+    <button ion-button [@fade]="controlRed" large full round (click)="playC()" [ngStyle]="{'background-color': '#f53d3d'}"></button>
+  </div> -->
   <div>
     <button ion-button [@fade]="controlOrange" full large round (click)="playD()" [ngStyle]="{'background-color': '#f76606'}"></button>
   </div>

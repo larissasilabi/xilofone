@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { trigger, state, style, transition, animate } from '@angular/animations'
-import { AudioProvider } from 'ionic-audio';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +15,7 @@ import { AudioProvider } from 'ionic-audio';
         opacity: 0.4
       })),
       transition('active => inactive', animate('.0.3s')),
-      transition('inactive => active', animate('.0.3s')),      
+      transition('inactive => active', animate('.0.3s')),
     ])
   ]
 })
@@ -32,7 +31,7 @@ export class HomePage {
   controlPink = 'inactive';
 
   constructor(public navCtrl: NavController, private nativeAudio: NativeAudio) {
-  
+
   }
 
   onInit() {
@@ -43,7 +42,7 @@ export class HomePage {
     this.controlRed = (this.controlRed == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('red', 'assets/audio/red.wav');
     this.nativeAudio.play('red').then(this.onSuccessPlaying, this.onError);
-    this.wait(3000);    
+    this.wait(3000);
     this.controlRed = (this.controlRed == 'active') ? 'inactive' : 'active';
   }
 
@@ -51,8 +50,8 @@ export class HomePage {
   playD() {
     this.controlOrange = (this.controlOrange == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('orange', 'assets/audio/orange.wav');
-    this.nativeAudio.play('orange').then(this.onSuccessPlaying, this.onError);    
-    this.wait(3000);    
+    this.nativeAudio.play('orange').then(this.onSuccessPlaying, this.onError);
+    this.wait(3000);
     this.controlOrange = (this.controlOrange == 'active') ? 'inactive' : 'active';
   }
 
@@ -61,7 +60,7 @@ export class HomePage {
     this.controlYellow = (this.controlYellow == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('yellow', 'assets/audio/yellow.wav');
     this.nativeAudio.play('yellow').then(this.onSuccessPlaying, this.onError);
-    
+
   }
 
   // F (Fá)

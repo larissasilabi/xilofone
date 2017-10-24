@@ -1,28 +1,117 @@
 page-home {
-  @-webkit-keyframes fade {
+  .red-button{
+    border-radius: 25px;
+    height: 50px;
+  }
+  .red-button:clicked .front {
+    -webkit-animation: pulseRed 1s ease-in-out;
+    animation: pulseRed 1s ease-in-out;
+  }
+  @-webkit-keyframes pulseRed {
     0% {
-      opacity: 0.4;     
-    }
-   
-    50% {
+      background: #f53d3d;
       opacity: 1;
     }
-   
+    50% {
+      background: #f53d3d;
+      opacity: 1;
+    }
     100% {
+      background: #f53d3d;
+      opacity: 0.4;
+    }
+  }
+  @keyframes pulseRed {
+    0% {
+      background: #f53d3d;
+      opacity: 1;
+    }
+    50% {
+      background: #f53d3d;
+      opacity: 1;
+    }
+    100% {
+      background: #f53d3d;
       opacity: 0.4;
     }
   }
 
-  .fadeIn {
-    -webkit-animation: fade ease-in 1;
-   animation: fade ease-in 1;
-   -webkit-animation-fill-mode: forwards;
-   animation-fill-mode: forwards;
-   -webkit-animation-duration: 3s;
-   animation-duration: 3s;
- }
+  .orange-button{
+    border-radius: 25px;
+    height: 50px;
+  }
+  .orange-button.hover .front {
+    -webkit-animation: pulseOrange 1s ease-in-out;
+    animation: pulseOrange 1s ease-in-out;
+  }
+  .orange-button.hover {
+    -webkit-animation: pulseOrange 1s ease-in-out;
+    animation: pulseOrange 1s ease-in-out;
+  }
+  @-webkit-keyframes pulseOrange {
+    0% {
+      background: #eb822d;
+      opacity: 1;
+    }
+    50% {
+      background: #eb822d;
+      opacity: 1;
+    }
+    100% {
+      background: #eb822d;
+      opacity: 0.4;
+    }
+  }
+  @keyframes pulseOrange {
+    0% {
+      background: #eb822d;
+      opacity: 1;
+    }
+    50% {
+      background: #eb822d;
+      opacity: 1;
+    }
+    100% {
+      background: #eb822d;
+      opacity: 0.4;
+    }
+  }
 
-    
+  .red-div {
+    position: relative;
+    background-color: #e2a49f;
+    border: none;
+    font-size: 28px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    -webkit-transition-duration: 1.0s; /* Safari */
+    transition-duration: 1.0s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.red-div:after {
+    content: "";
+    background: #d43529;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 1.5s
+}
+
+.red-div:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
 }
 
 
+}

@@ -16,7 +16,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       })),
       transition('active => inactive', animate('.0.3s')),
       transition('inactive => active', animate('.0.3s')),
-    ]), 
+    ]),
   ]
 })
 export class HomePage {
@@ -39,20 +39,14 @@ export class HomePage {
 
   // C (Dó)
   playC() {
-    this.controlRed = (this.controlRed == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('red', 'assets/audio/red.wav');
     this.nativeAudio.play('red').then(this.onSuccessPlaying, this.onError);
-    this.wait(3000);
-    this.controlRed = (this.controlRed == 'active') ? 'inactive' : 'active';
   }
 
   // D (Ré)
   playD() {
-    this.controlOrange = (this.controlOrange == 'active') ? 'inactive' : 'active';
     this.nativeAudio.preloadSimple('orange', 'assets/audio/orange.wav');
     this.nativeAudio.play('orange').then(this.onSuccessPlaying, this.onError);
-    this.wait(3000);
-    this.controlOrange = (this.controlOrange == 'active') ? 'inactive' : 'active';
   }
 
   // E (Mi)

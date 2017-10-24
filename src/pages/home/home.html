@@ -1,16 +1,17 @@
-
-
 <ion-content class="padding">
-  <div color="red" class="flip-button" onclick="this.classList.toggle('hover');">
-    <div class="button front">C</div>
-    <div class="button back">C</div>
-  </div>
-  <br>
-  <br>
 
-  <div>
-    <button ion-button [@fade]="controlRed" large full round (click)="playC()" [ngStyle]="{'background-color': '#f53d3d'}"></button>
+  <br>
+  <br>
+  <div class="red-div"  (click)="playC()">
+    <div class="button front" full></div>
   </div>
+  <br>
+  <div class="orange-button" [ngStyle]="{'background-color': '#eb822d', opacity: '0.4'}" onclick="this.classList.toggle('hover');"
+    (click)="playD()">
+    <div class="button front" full></div>
+  </div>
+
+  <button ion-button [@fade]="controlRed" large full round (click)="playC()" [ngStyle]="{'background-color': '#f53d3d'}"></button>
   <div>
     <button ion-button [@fade]="controlYellow" full large round (click)="playE()" [ngStyle]="{'background-color': '#D8E90F'}"></button>
   </div>

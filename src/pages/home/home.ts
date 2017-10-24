@@ -16,7 +16,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
       })),
       transition('active => inactive', animate('.0.3s')),
       transition('inactive => active', animate('.0.3s')),
-    ])
+    ]), 
   ]
 })
 export class HomePage {

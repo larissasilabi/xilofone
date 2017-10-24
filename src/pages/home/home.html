@@ -1,20 +1,21 @@
+
+
 <ion-content class="padding">
-  <div class="flip-button" onclick="this.classList.toggle('hover');">
-    <div class="button icon icon-right ion-chevron-right front">Click me</div>
-    <div class="button button-balanced back">Clicked!</div>
+  <div color="red" class="flip-button" onclick="this.classList.toggle('hover');">
+    <div class="button front">C</div>
+    <div class="button back">C</div>
   </div>
-  <br>
   <br>
   <br>
 
-  <!-- <div>
-    <button ion-button [@fade]="controlRed" large full round (click)="playC()" [ngStyle]="{'background-color': '#f53d3d'}"></button>
-  </div> -->
   <div>
-    <button ion-button [@fade]="controlOrange" full large round (click)="playD()" [ngStyle]="{'background-color': '#f76606'}"></button>
+    <button ion-button [@fade]="controlRed" large full round (click)="playC()" [ngStyle]="{'background-color': '#f53d3d'}"></button>
   </div>
   <div>
     <button ion-button [@fade]="controlYellow" full large round (click)="playE()" [ngStyle]="{'background-color': '#D8E90F'}"></button>
+  </div>
+  <div>
+    <button ion-button class="fadeIn" full large round (click)="playE()" [ngStyle]="{'background-color': '#D8E90F'}"></button>
   </div>
   <div>
     <button ion-button [@fade]="controlGreen" full large round (click)="playF()" [ngStyle]="{'background-color': '#34DA04'}"></button>

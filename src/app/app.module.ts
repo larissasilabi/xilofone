@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';

@@ -111,90 +111,87 @@ export class HomePage {
     this.controlPink = 'inactive';
   }
 
-  play1() {
+  async play1() {
     // DÓ (1), RÉ (1), MI (1), DÓ (1)
-    this.playC();
-    this.wait(1000);
-    console.log("finish C");
-    this.playD();
-    this.wait(1000);
-    console.log("finish D");
-    this.playE();
+    await this.click("C").then(() =>  this.playC());
+    await this.wait(1000);
+    await this.click("D").then(() =>  this.playD());
+    await this.wait(1000);
+    await this.click("E").then(() =>  this.playE());
+    await this.wait(1000);
+    await this.click("C").then(() =>  this.playC());
+    await this.wait(1000);
 
-    this.wait(1000);
-    this.playC();
-    this.wait(1000);
+  //   // DÓ (1), RÉ (1), MI (1), DÓ (1)
+  //   this.playC();
+  //   this.wait(1000);
+  //   this.playD();
+  //   this.wait(1000);
+  //   this.playE();
+  //   this.wait(1000);
+  //   this.playC();
 
-    // DÓ (1), RÉ (1), MI (1), DÓ (1)
-    this.playC();
-    this.wait(1000);
-    this.playD();
-    this.wait(1000);
-    this.playE();
-    this.wait(1000);
-    this.playC();
+  //   // MI (1), FÁ (1), SOL (2)
+  //   this.playE();
+  //   this.wait(1000);
+  //   this.playF();
+  //   this.wait(1000);
+  //   this.playG();
+  //   this.wait(2000);
 
-    // MI (1), FÁ (1), SOL (2)
-    this.playE();
-    this.wait(1000);
-    this.playF();
-    this.wait(1000);
-    this.playG();
-    this.wait(2000);
+  //   // MI (1), FÁ (1), SOL (2)
+  //   this.playE();
+  //   this.wait(1000);
+  //   this.playF();
+  //   this.wait(1000);
+  //   this.playG();
+  //   this.wait(2000);
 
-    // MI (1), FÁ (1), SOL (2)
-    this.playE();
-    this.wait(1000);
-    this.playF();
-    this.wait(1000);
-    this.playG();
-    this.wait(2000);
+  //   // SOL (1/2), LÁ (1/2), SOL (1/2), FÁ (1/2), MI (1), DÓ (1)
+  //   this.playG();
+  //   this.wait(500);
+  //   this.playA();
+  //   this.wait(500);
+  //   this.playG();
+  //   this.wait(500);
+  //   this.playF();
+  //   this.wait(500);
+  //   this.playE();
+  //   this.wait(1000);
+  //   this.playC();
+  //   this.wait(1000);
 
-    // SOL (1/2), LÁ (1/2), SOL (1/2), FÁ (1/2), MI (1), DÓ (1)
-    this.playG();
-    this.wait(500);
-    this.playA();
-    this.wait(500);
-    this.playG();
-    this.wait(500);
-    this.playF();
-    this.wait(500);
-    this.playE();
-    this.wait(1000);
-    this.playC();
-    this.wait(1000);
+  //   // SOL (1/2), LÁ (1/2), SOL (1/2), FÁ (1/2), MI (1), DÓ (1)
+  //   this.playG();
+  //   this.wait(500);
+  //   this.playA();
+  //   this.wait(500);
+  //   this.playG();
+  //   this.wait(500);
+  //   this.playF();
+  //   this.wait(500);
+  //   this.playE();
+  //   this.wait(1000);
+  //   this.playC();
+  //   this.wait(1000);
 
-    // SOL (1/2), LÁ (1/2), SOL (1/2), FÁ (1/2), MI (1), DÓ (1)
-    this.playG();
-    this.wait(500);
-    this.playA();
-    this.wait(500);
-    this.playG();
-    this.wait(500);
-    this.playF();
-    this.wait(500);
-    this.playE();
-    this.wait(1000);
-    this.playC();
-    this.wait(1000);
+  //   // DÓ (1), DÓ (1), DÓ (1)
+  //   this.playC();
+  //   this.wait(1000);
+  //   this.playC();
+  //   this.wait(1000);
+  //   this.playC();
+  //   this.wait(1000);
 
-    // DÓ (1), DÓ (1), DÓ (1)
-    this.playC();
-    this.wait(1000);
-    this.playC();
-    this.wait(1000);
-    this.playC();
-    this.wait(1000);
+  //   // DÓ (1), DÓ (1), DÓ (1)
+  //   this.playC();
+  //   this.wait(1000);
+  //   this.playC();
+  //   this.wait(1000);
+  //   this.playC();
+  //   this.wait(1000);
 
-    // DÓ (1), DÓ (1), DÓ (1)
-    this.playC();
-    this.wait(1000);
-    this.playC();
-    this.wait(1000);
-    this.playC();
-    this.wait(1000);
-
-  }
+   }
 
   play2() {
     this.playC();
@@ -205,7 +202,14 @@ export class HomePage {
   }
 
   play3() {
-    document.getElementById("redButton").click();
+    this.click("C");
+    this.click("D");
+    this.click("E");
+    this.click("F");
+    this.click("G");
+    this.click("A");
+    this.click("B");
+    this.click("C2");
   }
 
   wait(ms) {
@@ -215,4 +219,12 @@ export class HomePage {
       end = new Date().getTime();
     }
   }
+
+  async click(button) {
+    document.getElementById(button).className += "click";
+    setInterval(() => {
+      document.getElementById(button).className = document.getElementById(button).className.replace("click", "");
+    }, 500);
+  }
+
 }

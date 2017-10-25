@@ -205,7 +205,7 @@ export class HomePage {
   }
 
   play3() {
-
+    document.getElementById("redButton").click();
   }
 
   wait(ms) {

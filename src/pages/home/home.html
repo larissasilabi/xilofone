@@ -2,37 +2,32 @@
 
   <br>
   <br>
-  <div class="red-div"  (click)="playC()">
-    <div class="button front" full></div>
-  </div>
   <br>
-  <div class="orange-button" [ngStyle]="{'background-color': '#eb822d', opacity: '0.4'}" onclick="this.classList.toggle('hover');"
-    (click)="playD()">
-    <div class="button front" full></div>
+  <div>
+    <button id="redButton" [ngStyle]="{'background-color': '#f53d3d'}" (click)="playC()" ></button>
+  </div>
+  <div class="id">
+    <button [ngStyle]="{'background-color': '#eb822d'}" (click)="playD()" ></button>
+  </div>
+  <div class="id">
+    <button [ngStyle]="{'background-color': '#D8E90F'}" (click)="playE()" ></button>
+  </div>
+  <div class="id">
+    <button [ngStyle]="{'background-color': '#34DA04'}" (click)="playF()" ></button>
+  </div>
+  <div class="id">
+    <button [ngStyle]="{'background-color': '#0E94E8'}" (click)="playG()" ></button>
+  </div>
+  <div class="id">
+    <button [ngStyle]="{'background-color': '#0f0fa1'}" (click)="playA()" ></button>
+  </div>
+  <div class="id">
+    <button [ngStyle]="{'background-color': '#710b7a'}" (click)="playB()" ></button>
+  </div>
+  <div class="id">
+    <button [ngStyle]="{'background-color': '#F70965'}" (click)="playC2()" ></button>
   </div>
 
-  <button ion-button [@fade]="controlRed" large full round (click)="playC()" [ngStyle]="{'background-color': '#f53d3d'}"></button>
-  <div>
-    <button ion-button [@fade]="controlYellow" full large round (click)="playE()" [ngStyle]="{'background-color': '#D8E90F'}"></button>
-  </div>
-  <div>
-    <button ion-button class="fadeIn" full large round (click)="playE()" [ngStyle]="{'background-color': '#D8E90F'}"></button>
-  </div>
-  <div>
-    <button ion-button [@fade]="controlGreen" full large round (click)="playF()" [ngStyle]="{'background-color': '#34DA04'}"></button>
-  </div>
-  <div>
-    <button ion-button [@fade]="controlLightBlue" full large round (click)="playG()" [ngStyle]="{'background-color': '#0E94E8'}"></button>
-  </div>
-  <div>
-    <button ion-button [@fade]="controlDarkBlue" full large round (click)="playA()" [ngStyle]="{'background-color': '#0f0fa1'}"></button>
-  </div>
-  <div>
-    <button ion-button [@fade]="controlPurple" full large round (click)="playB()" [ngStyle]="{'background-color': '#710b7a'}"></button>
-  </div>
-  <div>
-    <button ion-button [@fade]="controlPink" full large round (click)="playC2()" [ngStyle]="{'background-color': '#F70965'}"></button>
-  </div>
   <ion-grid>
     <ion-row>
       <ion-col col-4>

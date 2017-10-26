@@ -48,13 +48,13 @@ page-home {
   }
 
   button:focus:not(:active)::after {
-    animation: ripple 1s ease-out;
+    animation: ripple 2s ease-out;
   }
 
   .id {
     padding-top: 5px;
   }
   .click::after{
-    animation: ripple 1s ease-out;
+    animation: ripple 2s ease-out;
   }
 }

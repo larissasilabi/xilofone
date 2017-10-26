@@ -22,7 +22,6 @@ export class HomePage {
     this.nativeAudio.preloadSimple('red', 'assets/audio/red.wav');
     this.nativeAudio.play('red').then(this.onSuccessPlaying, this.onError);
     this.events.publish('button:click', "C");
-
   }
 
   // D (Ré)
@@ -83,25 +82,23 @@ export class HomePage {
   }
 
   async play1() {
-    await this.playM1P1();    
-    await this.validaM1(1);
-    // if (p1Ok) {
-      // await this.playM1P2();
-      // const p2OK = await this.validaM1(2);
-      // if (p2OK) {
-      //   await this.playM1P3();
-      //   const p3OK = await this.validaM1(3);
-      //   if (p3OK) {
-      //     await this.playM1P4();
-      //     const p4OK = await this.validaM1(4);
-      //     if (p4OK) {
-      //       await swal('Parabéns!','Você completou o desafio!','success');
-      //     }
-      //   }
-      
-    // }    
+    await this.playM1P1();
+    await swal('Sua vez!', 'Repita a sequencia!', 'warning');
+    await this.validaM1(1, 8);
+    //await this.playM1P2();
+    // await swal('Sua vez!', 'Repita a sequencia!', 'warning');
+    // await this.validaM1(2, 6);
+    // await swal('Parabéns!', 'Vamos para a terceira fase!', 'success');
+    // await this.playM1P3();
+    // await swal('Sua vez!', 'Repita a sequencia!', 'warning');
+    // await this.validaM1(3, 12);
+    // await swal('Parabéns!', 'Vamos para a última fase!', 'success');
+    // await this.playM1P4();
+    // await swal('Sua vez!', 'Repita a sequencia!', 'warning');
+    // await this.validaM1(4, 6);
+    // await swal('Parabéns!', 'Você ganhou!', 'success');
   }
-  
+
   async playM1P1() {
     // DÓ (1), RÉ (1), MI (1), DÓ (1)
     await this.click("C");//1
@@ -144,10 +141,10 @@ export class HomePage {
 
     console.log("fim segunda parte");
 
-    await this.validaM1(2);
+    await this.validaM1(2, 6);
   }
 
-  async playM1P3(){
+  async playM1P3() {
     // SOL (1/2), LÁ (1/2), SOL (1/2), FÁ (1/2), MI (1), DÓ (1)
     await this.playG();
     await this.wait(500);
@@ -177,11 +174,11 @@ export class HomePage {
     await this.wait(1000);
 
     console.log("fim terceira parte");
-    
-    await this.validaM1(3);
+
+    await this.validaM1(3, 12);
   }
 
-  async playM1P4(){
+  async playM1P4() {
     // DÓ (1), DÓ (1), DÓ (1)
     await this.playC();
     await this.wait(1000);
@@ -198,7 +195,7 @@ export class HomePage {
     await this.playC();
     await this.wait(1000);
 
-    await this.validaM1(4);
+    await this.validaM1(4, 6);
   }
 
   play2() {
@@ -238,26 +235,28 @@ export class HomePage {
     });
   }
 
-  validaM1(parte): Boolean {
-    console.log(parte);
+  async validaM1(parte, tamanho) {
+    console.log("parte : " + parte);
+    console.log("tamanho : " + tamanho);
     let ok = true;
     let sequencia = 1;
-    switch (parte) {
-      case 1:
-        swal('Sua vez!', 'Repita a sequencia!', 'warning');
-        // C, D, E, C
-        this.events.subscribe('button:click', (id) => {
+    await this.events.subscribe('button:click', (id) => {
+      switch (parte) {
+        case 1:
+          // C, D, E, C
           console.log(id);
           if (sequencia === 1 || sequencia === 4 || sequencia === 5 || sequencia === 8) {
             if (id === "C") {
-               sequencia++;
+              sequencia++;
+              console.log(sequencia);
             } else {
               swal('Errado!', 'Vamos tentar novamente!', 'error');
-              ok = false;                            
+              ok = false;
             }
           } else if (sequencia === 2 || sequencia === 6) {
             if (id === "D") {
               sequencia++;
+              console.log(sequencia);
             } else {
               swal('Errado!', 'Vamos tentar novamente!', 'error');
               ok = false;
@@ -265,19 +264,23 @@ export class HomePage {
           } else if (sequencia === 3 || sequencia === 7) {
             if (id === "E") {
               sequencia++;
+              console.log(sequencia);
             } else {
               swal('Errado!', 'Vamos tentar novamente!', 'error');
               ok = false;
             }
           }
-          this.events.unsubscribe('button:click');          
-        });
+          if (sequencia > tamanho) {
+            swal('Parabéns!', 'Vamos para a segunda fase!', 'success');
+            console.log("unsubscribe");
+            this.events.unsubscribe('button:click');
+          }
+
+          break;
 
 
-      case 2:
-        // E, F, G
-        this.events.subscribe('button:click', (id) => {
-          console.log(id);
+        case 2:
+          // E, F, G
           if (sequencia === 1 || sequencia === 4) {
             if (id === "E") {
               sequencia++;
@@ -300,13 +303,14 @@ export class HomePage {
               ok = false;
             }
           }
-          this.events.unsubscribe('button:click');
-        });
+          if (sequencia > tamanho) {
+            console.log("unsubscribe");
+            this.events.unsubscribe('button:click');
+          }
+          break;
 
-      case 3:
-        // G, A, G, F, E, C        
-        this.events.subscribe('button:click', (id) => {
-          console.log(id);
+        case 3:
+          // G, A, G, F, E, C
           if (sequencia === 1 || sequencia === 3 || sequencia === 7 || sequencia === 9) {
             if (id === "G") {
               sequencia++;
@@ -343,13 +347,14 @@ export class HomePage {
               ok = false;
             }
           }
-          this.events.unsubscribe('button:click');
-        });
+          if (sequencia > tamanho) {
+            console.log("unsubscribe");
+            this.events.unsubscribe('button:click');
+          }
+          break;
 
-      case 4:
-        // G, A, G, F, E, C        
-        this.events.subscribe('button:click', (id) => {
-          console.log(id);
+        case 4:
+          //G, A, G, F, E, C
           if (sequencia >= 1 && sequencia <= 6) {
             if (id === "C") {
               sequencia++;
@@ -358,10 +363,12 @@ export class HomePage {
               ok = false;
             }
           }
-          this.events.unsubscribe('button:click');
-        });
-
-      return ok;
-    }
+          if (sequencia > tamanho) {
+            console.log("unsubscribe");
+            this.events.unsubscribe('button:click');
+          }
+          break;
+      }
+    });
   }
 }

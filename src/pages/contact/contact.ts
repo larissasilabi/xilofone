@@ -42,11 +42,11 @@ export class ContactPage {
 
       })
   }
+
   success = (data) => alert(data);
   fail = (error) => alert(error);
 
   selectDevice(address: any) {
-
     let alert = this.alertCtrl.create({
       title: 'Connect',
       message: 'Do you want to connect with?',
@@ -67,7 +67,6 @@ export class ContactPage {
       ]
     });
     alert.present();
-
   }
 
   disconnect() {

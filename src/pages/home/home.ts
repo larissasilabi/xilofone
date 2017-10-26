@@ -84,22 +84,22 @@ export class HomePage {
 
   async play1() {
     await this.playM1P1();    
-    const p1Ok = await this.validaM1(1);
-    if (p1Ok) {
-      await this.playM1P2();
-      const p2OK = await this.validaM1(2);
-      if (p2OK) {
-        await this.playM1P3();
-        const p3OK = await this.validaM1(3);
-        if (p3OK) {
-          await this.playM1P4();
-          const p4OK = await this.validaM1(4);
-          if (p4OK) {
-            await swal('Parabéns!','Você completou o desafio!','success');
-          }
-        }
-      }
-    }    
+    await this.validaM1(1);
+    // if (p1Ok) {
+      // await this.playM1P2();
+      // const p2OK = await this.validaM1(2);
+      // if (p2OK) {
+      //   await this.playM1P3();
+      //   const p3OK = await this.validaM1(3);
+      //   if (p3OK) {
+      //     await this.playM1P4();
+      //     const p4OK = await this.validaM1(4);
+      //     if (p4OK) {
+      //       await swal('Parabéns!','Você completou o desafio!','success');
+      //     }
+      //   }
+      
+    // }    
   }
   
   async playM1P1() {
@@ -234,7 +234,7 @@ export class HomePage {
       setTimeout(() => {
         document.getElementById(button).className = document.getElementById(button).className.replace("click", "");
         resolve();
-      }, 1000, 1);
+      }, 500, 1);
     });
   }
 
@@ -253,7 +253,7 @@ export class HomePage {
                sequencia++;
             } else {
               swal('Errado!', 'Vamos tentar novamente!', 'error');
-              ok = false;              
+              ok = false;                            
             }
           } else if (sequencia === 2 || sequencia === 6) {
             if (id === "D") {
@@ -270,7 +270,7 @@ export class HomePage {
               ok = false;
             }
           }
-          this.events.unsubscribe('button:click');
+          this.events.unsubscribe('button:click');          
         });
 
 

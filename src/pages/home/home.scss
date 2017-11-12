@@ -10,7 +10,6 @@ page-home {
     border-radius: 25px;
     font-size: 22px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .4);
-    opacity: 1;
   }
 
   /* Ripple magic */
@@ -26,7 +25,7 @@ page-home {
     left: 50%;
     width: 100%;
     height: 5px;
-    background: rgba(255, 255, 255, .5);
+    background: rgb(255, 255, 255);
     opacity: 0;
     transform: scale(1, 1) translate(-50%);
     transform-origin: 50% 50%;
@@ -35,26 +34,26 @@ page-home {
   @keyframes ripple {
     0% {
       transform: scale(100, 100);
-      opacity: 1;
+      opacity: 0.5;
     }
     20% {
       transform: scale(100, 100);
-      opacity: 1;
+      opacity: 0.5;
     }
     100% {
-      opacity: 1;
+      opacity: 0.5;
       transform: scale(100, 100);
     }
   }
 
   button:focus:not(:active)::after {
-    animation: ripple 2s ease-out;
+    animation: ripple 0.5s ease-out;
   }
 
   .id {
     padding-top: 5px;
   }
   .click::after{
-    animation: ripple 2s ease-out;
+    animation: ripple 0.5s ease-out;
   }
 }
